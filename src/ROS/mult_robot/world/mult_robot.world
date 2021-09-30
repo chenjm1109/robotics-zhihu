@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="my_world">
+    <!-- 环境光 -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- 地面 -->
+    <include>
+      <uri>model://ground_plane</uri>
+      <script>
+        <uri>file://media/materials/scripts/gazebo.material</uri>
+        <name>Gazebo/White</name>
+      </script>
+    </include>
+    
+    <model name='cart_front_steer'>
+        <!-- A testing model -->
+      <include>
+        <uri>model://cart_front_steer</uri>
+	<name>cart_front_steer_1</name>
+	<pose>0 0 0.1 0 0 0</pose>
+      </include>
+
+        <!-- A testing model -->
+      <include>
+        <uri>model://cart_front_steer</uri>
+	<name>cart_front_steer_2</name>
+	<pose>2.0 0 0.1 0 0 0</pose>
+      </include>
+
+        <!-- A testing model -->
+      <include>
+        <uri>model://cart_front_steer</uri>	
+	<name>cart_front_steer_3</name>
+	<pose>4.0 0 0.1 0 0 0</pose>
+      </include>
+
+      <joint name="fixed_joint_1" type="fixed">
+        <parent>cart_front_steer_1::chassis</parent>
+        <child>cart_front_steer_2::chassis</child>
+      </joint>
+
+    </model>
+    
+  </world>
+</sdf>
